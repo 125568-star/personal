@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="theme-color" content="#0f2a5c">
+<title>Dashboard · Personal</title>
+<script>
+(function () {
+  var mode='auto';
+  try {mode=localStorage.getItem('gsc_personal_theme')||'auto';} catch (_) {}
+  document.documentElement.dataset.theme=
+    mode==='dark'||(mode==='auto'&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';
+})();
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<div id="app"><p class="loading">Loading…</p></div>
+<footer class="themefooter" aria-label="Appearance">
+  <button type="button" data-theme-choice="dark">Dark</button>
+  <button type="button" data-theme-choice="light">Light</button>
+  <button type="button" data-theme-choice="auto">System</button>
+</footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
